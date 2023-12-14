@@ -97,7 +97,6 @@
 
         setAnswer(inputanswers) {
             const inputElements = document.querySelectorAll('div.answer.answer-font input[style="border: 1px solid rgb(248, 142, 5);"]')
-            // var $answers = $('div.answer.answer-font input[style="border: 1px solid rgb(248, 142, 5);"]');
             var length = inputElements.length;
             var answers = this.filterStr(inputanswers.replace(/\s/g, ""));
 
@@ -150,12 +149,10 @@
             }).then((res) => {
                 if (res.isConfirmed) {
                     this.setAnswer(res.value)
-                    console.log(res.value)
                 }
                 if (res.isDenied) {
                     navigator.clipboard.readText().then(text => {
                         this.setAnswer(res.value)
-                        console.log(res.value)
                     }).catch((e) => {
                         toast.fire({
                             title: "读取剪切板失败，请先授权或手动粘贴后识别！",
@@ -195,7 +192,7 @@
         },
 
         addButton() {
-            // 新增一个按钮， 放在bottom-tool class下面
+            // 新增一个按钮
             var button = document.createElement("button");
             button.innerHTML = "批量输入答案";
             button.setAttribute("class", "el-button el-button--primary el-button--small");
