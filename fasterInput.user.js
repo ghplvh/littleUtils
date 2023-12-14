@@ -13,7 +13,8 @@
 // @author            Quentin Luo
 // @description       智能识别选中剪切板中的答案，按字符分割并填入输入框
 // @license           AGPL-3.0-or-later
-// @match             https://eduapp.runjian.com/region/exam/single/answer/*
+// @match             https://*/region/exam/single/answer/*
+// @match             http://*/region/exam/single/answer/*
 // @require           https://unpkg.com/sweetalert2@10.16.6/dist/sweetalert2.min.js
 // @require           https://unpkg.com/hotkeys-js/dist/hotkeys.min.js
 // @resource          swalStyle https://unpkg.com/sweetalert2@10.16.6/dist/sweetalert2.min.css
