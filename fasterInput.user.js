@@ -9,7 +9,7 @@
 
 // ==UserScript==
 // @name              快速输入客观题答案
-// @version           0.1
+// @version           0.2
 // @author            Quentin Luo
 // @description       智能识别选中剪切板中的答案，按字符分割并填入输入框
 // @license           AGPL-3.0-or-later
@@ -84,29 +84,6 @@
             });
         },
 
-        // 添加状态
-        addStaus(error, success) {
-            if (error.length > 0) {
-                var ul = $("<ul>")
-                error.forEach(e => {
-                    ul.append("<li>" + e + "</li>")
-                })
-                Swal.fire({
-                    icon: "error",
-                    title: '未检索到以下用户',
-                    html: ul,
-
-                })
-            }
-            else {
-                toast.fire({
-                    icon: "success",
-                    title: '成功检索到' + success.length + "个用户",
-                })
-            }
-
-        },
-
         filterStr(str) {
             var pattern = new RegExp("[^A-Za-z\?]");
             var specialStr = "";
@@ -162,7 +139,7 @@
                 title: "识别剪切板中文字",
                 input: "textarea",
                 inputPlaceholder: "若选方式一，请按 Ctrl+V 粘贴要识别的文字",
-                html: `<div style="font-size: 12px;color: #999;margin-bottom: 8px;text-align: center;">提示：在任意网页按下 <span style="font-weight: 700;">F2</span> 键可快速打开本窗口。</div><div style="font-size: 5px;line-height: 22px;padding: 10px 0 5px;text-align: left;"><div style="font-size: 16px;margin-bottom: 8px;font-weight: 700;">支持以下两种方式：</div><div><b>方式一：</b>直接粘贴文字到输入框，点击“识别方框内容”按钮。</div><div><b>方式二：</b>点击“读取剪切板”按钮。<span style="color: #d14529;font-size: 12px;">会弹出“授予网站读取剪切板”权限，同意后会自动识别剪切板中的文字。</span></div></div>`,
+                html: `<div style="font-size: 12px;color: #999;margin-bottom: 8px;text-align: center;">提示：在本网页按下 <span style="font-weight: 700;">F2</span> 键可快速打开本窗口。</div><div style="font-size: 5px;line-height: 22px;padding: 10px 0 5px;text-align: left;"><div style="font-size: 16px;margin-bottom: 8px;font-weight: 700;">支持以下两种方式：</div><div><b>方式一：</b>直接粘贴文字到输入框，点击“识别方框内容”按钮。</div><div><b>方式二：</b>点击“读取剪切板”按钮。<span style="color: #d14529;font-size: 12px;">会弹出“授予网站读取剪切板”权限，同意后会自动识别剪切板中的文字。</span></div></div>`,
                 showCloseButton: false,
                 showDenyButton: true,
                 confirmButtonText: "识别方框内容",
