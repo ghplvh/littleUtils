@@ -9,7 +9,7 @@
 
 // ==UserScript==
 // @name              快速输入客观题答案
-// @version           0.4
+// @version           0.5
 // @author            Quentin Luo
 // @description       智能识别选中剪切板中的答案，按字符分割并填入输入框
 // @license           AGPL-3.0-or-later
