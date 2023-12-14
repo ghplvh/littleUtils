@@ -17,8 +17,8 @@
 // @require           https://unpkg.com/sweetalert2@10.16.6/dist/sweetalert2.min.js
 // @require           https://unpkg.com/hotkeys-js/dist/hotkeys.min.js
 // @resource          swalStyle https://unpkg.com/sweetalert2@10.16.6/dist/sweetalert2.min.css
-// @updateURL         https://github.com/ghplvh/littleUtils/fasterInput.user.js
-// @downloadURL       https://github.com/ghplvh/littleUtils/fasterInput.user.js
+// @updateURL         https://github.com/ghplvh/littleUtils/raw/main/fasterInput.user.js
+// @downloadURL       https://github.com/ghplvh/littleUtils/raw/main/fasterInput.user.js
 // @run-at            document-idle
 // @grant             GM_openInTab
 // @grant             GM_setValue
