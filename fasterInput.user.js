@@ -9,7 +9,7 @@
 
 // ==UserScript==
 // @name              快速输入客观题答案
-// @version           0.3
+// @version           0.4
 // @author            Quentin Luo
 // @description       智能识别选中剪切板中的答案，按字符分割并填入输入框
 // @license           AGPL-3.0-or-later
@@ -152,7 +152,7 @@
                 }
                 if (res.isDenied) {
                     navigator.clipboard.readText().then(text => {
-                        this.setAnswer(res.value)
+                        this.setAnswer(text)
                     }).catch((e) => {
                         toast.fire({
                             title: "读取剪切板失败，请先授权或手动粘贴后识别！",
