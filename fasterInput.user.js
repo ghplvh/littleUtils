@@ -9,12 +9,12 @@
 
 // ==UserScript==
 // @name              快速输入客观题答案
-// @version           0.5
+// @version           0.6
 // @author            Quentin Luo
 // @description       智能识别选中剪切板中的答案，按字符分割并填入输入框
 // @license           AGPL-3.0-or-later
-// @match             https://*/region/exam/single/answer/*
-// @match             http://*/region/exam/single/answer/*
+// @match             *://*/region/exam/single/answer/*
+// @match             *://*/exam/single/answer/*
 // @require           https://unpkg.com/sweetalert2@10.16.6/dist/sweetalert2.min.js
 // @require           https://unpkg.com/hotkeys-js/dist/hotkeys.min.js
 // @resource          swalStyle https://unpkg.com/sweetalert2@10.16.6/dist/sweetalert2.min.css
@@ -96,7 +96,8 @@
 
 
         setAnswer(inputanswers) {
-            const inputElements = document.querySelectorAll('div.answer.answer-font input[style="border: 1px solid rgb(248, 142, 5);"]')
+            // const inputElements = document.querySelectorAll('div.answer.answer-font input[style="border: 1px solid rgb(248, 142, 5);"]') 
+            const inputElements = document.querySelectorAll("td.el-table_1_column_3.is-center.el-table__cell > div > div > input[type=text]")
             var length = inputElements.length;
             var answers = this.filterStr(inputanswers.replace(/\s/g, ""));
 
@@ -129,12 +130,13 @@
         //识别输入框中的内容
         showIdentifyBox() {
             var arr = [];
-            var $answers = $('div.answer.answer-font input[style="border: 1px solid rgb(248, 142, 5);"]');
-            var length = $answers.length;
+            const inputElements = document.querySelectorAll("td.el-table_1_column_3.is-center.el-table__cell > div > div > input[type=text]")
+            var length = inputElements.length;
             for (var i = 0; i < length; i++) {
-                arr.push($answers.get(i).value)
+                arr.push(inputElements[i].value)
             }
             var str1 = arr.join("");
+            console.log(str1)
             Swal.fire({
                 title: "识别剪切板中文字",
                 input: "textarea",
@@ -216,6 +218,7 @@
             this.addHotKey();
             this.registerMenuCommand();
             this.addButton()
+            console.log("init 完成")
         },
     };
 
